@@ -1,0 +1,18 @@
+.comment-form {
+  display: flex;
+  width: 100%;
+}
+.comment-form .comment-user-info {
+  width: 100%;
+  margin-left: 10px;
+}
+.comment-form .comment-user-info .user-message {
+  display: flex;
+  justify-content: space-between;
+}
+.comment-form .comment-user-info .user-message .user-qq-email {
+  display: flex;
+}
+.comment-form .comment-user-info .user-message .ant-form-item {
+  margin-bottom: 10px !important;
+}

@@ -1,0 +1,45 @@
+/*主题区域开始*/
+@keyframes bottom-top {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    margin-top: 50px;
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    margin-top: 0;
+  }
+}
+/* 内容区域开始 */
+#main {
+  display: flex;
+  -moz-box-flex: 1;
+  flex: 1 auto;
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem 15px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 75%;
+  transition: all 0.3s;
+  animation: bottom-top 1s;
+  padding-bottom: 80px;
+}
+.content #pagination {
+  align-self: center;
+  margin-top: 20px;
+}
+.article {
+  margin-top: 0.3rem;
+}
+#content > .content-item:hover {
+  box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.15);
+}
+#content > .content-item:not(:first-child) {
+  margin-top: 1rem;
+}
+/* 内容区域结束 */

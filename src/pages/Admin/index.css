@@ -1,0 +1,7 @@
+#body-wrap {
+  position: relative;
+  display: flex;
+  -moz-box-orient: vertical;
+  flex-direction: column;
+  min-height: 100vh;
+}

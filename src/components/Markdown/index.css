@@ -1,0 +1,85 @@
+.marked {
+  word-break: break-all;
+  width: 100%;
+}
+.marked h2,
+.marked h3,
+.marked h4,
+.marked h5 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.marked h5 {
+  font-size: 20px;
+}
+.marked h4 {
+  font-size: 22px;
+}
+.marked h3 {
+  font-size: 24px;
+}
+.marked h2 {
+  font-size: 26px;
+}
+.marked h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+.marked h2::before {
+  content: '✒️';
+}
+.marked h3::before {
+  content: '✏️';
+}
+.marked h4::before {
+  content: '📌';
+}
+.marked h5::before {
+  content: '🏷️';
+}
+.marked p {
+  margin-bottom: 20px;
+}
+.marked p img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+.marked blockquote {
+  padding: 5px 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px #62a4da dashed;
+}
+.marked blockquote p {
+  margin: 0;
+}
+.marked table {
+  margin: 20px auto;
+  border: 1px solid #787878;
+  border-spacing: 0;
+  /*去掉单元格间隙*/
+  text-align: center;
+}
+.marked table th,
+.marked table td {
+  padding: 6px 14px;
+  border: 1px solid #787878;
+}
+.marked a {
+  font-weight: 700;
+  text-decoration: underline !important;
+  margin: 0 4px;
+  color: #62a4da;
+}
+.marked a:hover {
+  color: red;
+}
+.marked hr {
+  margin: 20px 0;
+}
+li {
+  margin-left: 15px;
+}

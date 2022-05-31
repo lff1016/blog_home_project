@@ -1,17 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import store from './redux/store';
+import memoryUtils from './utils/memoryUtils';
+import storageUtils from './utils/storageUtils';
+
+// 引入 antd 的样式
+import 'antd/dist/antd.css';
+import { ConfigProvider } from 'antd'; /* antd 国际化组件 */
+import zhCN from 'antd/lib/locale/zh_CN';
+
+// localStorage 中存储了用户信息的话，就保存到内存中
+const user = storageUtils.getUser()
+memoryUtils.user = user
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ConfigProvider locale={zhCN}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </BrowserRouter>
+    </Provider>
+  </ConfigProvider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

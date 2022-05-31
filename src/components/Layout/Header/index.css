@@ -1,0 +1,208 @@
+@keyframes headerNoOpacity {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes sub_menus {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+}
+@keyframes header-effect {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 0.4;
+    /* filter 是滤镜效果 */
+    filter: alpha(opacity=40);
+  }
+  50% {
+    top: -16px;
+    opacity: 1;
+    filter: none;
+  }
+  100% {
+    top: 0;
+    opacity: 0.4;
+    /* filter 是滤镜效果 */
+    filter: alpha(opacity=40);
+  }
+}
+.nav {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  -moz-box-align: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  font-size: 1.3em;
+  padding: 0 36px;
+  z-index: 90;
+  transition: all 0.5s;
+  animation: headerNoOpacity 1s;
+}
+.nav-home-color {
+  color: #fff;
+}
+.nav-color {
+  color: #0f0f0f !important;
+  background-color: #0081cf;
+  box-shadow: 2px 0px 5px 4px rgba(40, 44, 52, 0.3);
+}
+#blog_name {
+  -moz-box-flex: 1;
+  flex: 1;
+  font-size: 1.4em;
+}
+#blog_name a {
+  color: #fff;
+}
+#menus {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+}
+#header {
+  position: relative;
+  width: 100%;
+}
+.post-bg {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../assets//img/fishsky.jpg");
+  background-attachment: fixed;
+  transition: all 0.5s;
+  /*背景图片完全覆盖容器*/
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation: header-effect 1s ease 0s 1 normal running none;
+}
+/* 页脚的小图标 */
+#scroll-down {
+  position: absolute;
+  bottom: 3px;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+.scroll-down-effects {
+  position: relative;
+  font-size: 20px;
+  animation: scroll-down-effect 1.5s infinite;
+}
+.scroll-down-effects::before {
+  content: "\e601";
+  font-family: "iconfont";
+  font-size: 20px;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-align: center;
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+  line-height: 1.5;
+}
+.icon-icon-test::before {
+  font-size: 1.4em;
+  color: #FFFFFF;
+}
+.menus-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 0 0 1rem;
+}
+.menus-item .site-page {
+  position: relative;
+  padding-bottom: 0.3rem;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.menus-item .site-page .nav-item-title::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #80c8f8;
+  transition: all 0.2s ease-in-out;
+}
+.menus-item .site-page .nav-item-title:hover::after {
+  width: 100%;
+}
+.menus-item-child {
+  position: absolute;
+  right: -5px;
+  display: none;
+  margin-top: 5px;
+  padding: 0;
+  width: max-content;
+  color: #0f0f0f;
+  /*background-color: #121212;*/
+  /*box-shadow: 0 5px 20px -4px rgba(0,0,0, .5);*/
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);
+  animation: sub_menus 0.3s 0.1s ease both;
+}
+.menus-item-child::before {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  content: '';
+}
+.menus-item-child li a {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  width: 100%;
+  color: #0f0f0f;
+  text-shadow: none !important;
+  font-size: 0.78em;
+}
+.menus-item-child li:hover {
+  background-color: #f5f5f5;
+}
+.menus-item:hover .menus-item-child {
+  display: block;
+}
+/*头部样式结束*/
