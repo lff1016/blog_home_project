@@ -51,3 +51,10 @@
   content: '|';
   margin-left: 10px;
 }
+.content-item .content-info .article-meta .category {
+  margin-right: 10px;
+}
+.content-item .content-info .article-meta .category::after {
+  content: '|';
+  margin-left: 10px;
+}

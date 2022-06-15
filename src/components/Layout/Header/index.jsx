@@ -8,12 +8,12 @@ import {
   LoginOutlined,
   DownOutlined
 } from '@ant-design/icons';
-import memoryUtils from '../../../utils/memoryUtils';
+
 
 import './index.css';
+import { myInfo } from '../../../utils/constant'
 
 export default function Header() {
-  const user = memoryUtils.user
   const location = useLocation()
 
   // 导航菜单项
@@ -101,7 +101,7 @@ export default function Header() {
       <div className={location.pathname === '/home' ? 'nav nav-home-color' : 'nav nav-color'}>
         <div id="blog_name">
           <i className="iconfont icon-icon-test"></i>
-          <a href="/home/">{user.username}，今天也要加油鸭！</a>
+          <a href="/home">{myInfo.username}，今天也要加油鸭！</a>
         </div>
         {renderNavItem}
       </div>

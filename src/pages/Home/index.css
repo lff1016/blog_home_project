@@ -14,11 +14,10 @@
 /* 内容区域开始 */
 #main {
   display: flex;
-  -moz-box-flex: 1;
-  flex: 1 auto;
-  width: 80%;
-  margin: 0 auto;
-  padding: 2rem 15px;
+  justify-content: center;
+  width: 100%;
+  margin: 20px auto;
+  padding: 0 100px;
 }
 .content {
   display: flex;
@@ -32,6 +31,9 @@
 .content #pagination {
   align-self: center;
   margin-top: 20px;
+}
+.home-aside {
+  width: 25%;
 }
 .article {
   margin-top: 0.3rem;

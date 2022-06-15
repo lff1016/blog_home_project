@@ -1,0 +1,30 @@
+.is-center {
+  text-align: center;
+}
+.avatar-img {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 110px;
+  height: 110px;
+  border-radius: 70px;
+}
+.avatar-img img {
+  height: 100%;
+  object-fit: cover;
+}
+.author-info_name {
+  font-weight: 500;
+  font-size: 1.57em;
+}
+.author-info_description {
+  margin-top: 0.3rem;
+}
+.card-info_data {
+  display: table;
+  margin: 0.7rem 0 0.2rem;
+  width: 100%;
+  table-layout: fixed;
+}
+.card-info_data-item {
+  display: table-cell;
+}

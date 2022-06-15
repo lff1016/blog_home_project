@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Typography, Pagination } from 'antd';
+import { Pagination } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 
@@ -16,7 +16,6 @@ export default function Home() {
   const navigate = useNavigate()
 
   const articles = useSelector(state => state.articles) // 获取 store 中的数据
-  console.log('redux中的文章', articles);
 
   const dispatch = useDispatch()
 
@@ -47,6 +46,7 @@ export default function Home() {
                 category={article.category}
                 content={article.content}
                 imgUrl={article.coverImg[0]}  
+                tags={article.tags}
                 onClick={() => navigate(`/article?id=${article._id}`)}
               />
             )
@@ -58,7 +58,9 @@ export default function Home() {
         </nav>
       </div>
       {/* 侧边栏 */}
-      <Aside />
+      <div className='home-aside'>
+        <Aside />
+      </div>
     </main>
   )
 }

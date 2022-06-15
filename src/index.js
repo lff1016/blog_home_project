@@ -15,7 +15,7 @@ import zhCN from 'antd/lib/locale/zh_CN';
 
 // localStorage 中存储了用户信息的话，就保存到内存中
 const user = storageUtils.getUser()
-memoryUtils.user = user
+memoryUtils.login_user = user
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

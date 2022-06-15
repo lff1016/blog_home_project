@@ -1,9 +1,10 @@
 import React from 'react';
 import moment from 'moment';
-import { Typography } from 'antd';
+import { Typography, Tag } from 'antd';
 import {
   FieldTimeOutlined,
-  InboxOutlined
+  InboxOutlined,
+  TagOutlined
 } from '@ant-design/icons';
 
 import './index.css'
@@ -14,9 +15,10 @@ export default function PostCard(props) {
 
   const [ellipsis, setEllipsis] = React.useState(true)
 
-  console.log('props', props);
+  // 定义标签的背景色
+  const tagColor = ['red', 'geekblue', 'green', , 'orange', 'cyan', 'volcano', 'purple']
 
-  const { id, title, date, category, content, imgUrl, onClick } = props
+  const { id, title, date, category, tags, content, imgUrl, onClick } = props
 
   return (
     <div className="content-item" key={id} onClick={onClick}>
@@ -39,10 +41,20 @@ export default function PostCard(props) {
             <InboxOutlined style={{ marginRight: '5px', color: '#1873a2' }} />
             <span>{category.name}</span>
           </div>
+          <div className="tags">
+            <TagOutlined style={{ marginRight: '6px', color: '#1873a2' }} />
+            {
+              tags.map((tag, index) => {
+                return (
+                  <Tag color={tagColor[index]} key={tag._id}>{tag.name}</Tag>
+                )
+              })
+            }
+          </div>
         </div>
         {/* 文章主体 */}
         <div className="article">
-          <Paragraph ellipsis={ellipsis ? { rows: 2, expandable: true, symbol: 'more' } : false}>
+          <Paragraph ellipsis={ellipsis ? { rows: 2, expandable: true, symbol: '更多' } : false}>
             {content.replace(/<a(.*?)>(.*?)<\/a>/g, '$2').replace(/[# |**|`|>]/g, '')}
           </Paragraph>
         </div>

@@ -1,3 +1,50 @@
 .says {
-  margin-top: 60px;
+  width: 100%;
+  background-color: #eff0f2;
+  margin: 50px 0 80px 0;
+}
+
+.says-wrap {
+  margin: 20px auto;
+  width: 80%;
+  padding: 20px 0;
+  background-color: #fff;
+  .says-header {
+    height: 40px;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 0 20px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
+
+.says-list {
+
+  width: 80%;
+  margin: 0 auto;
+  .says-list-item {
+    display: flex;
+    min-height: 80px;
+    margin-top: 20px;
+    .says-list-item-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 10px;
+      width: 100%;
+      padding: 5px 24px;
+      box-shadow: 6px 6px 8px gainsboro;
+      border: 1px solid gainsboro;
+      border-radius: 10px;
+
+      .says-creatTime {
+        width: 150px;
+        align-self: flex-end;
+        font-size: 14px;
+        text-align: center;
+        background-color: aquamarine; 
+        border-radius: 10px;
+      }
+    }
+  }
 }
