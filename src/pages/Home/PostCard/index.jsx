@@ -25,7 +25,7 @@ export default function PostCard(props) {
       {/* 文章图片封面 */}
       <div className="cover left_radius">
         <a href="#"></a>
-        <img className="post_img_bg" src={'http://localhost:3001/upload/coverImg/' + imgUrl} />
+        <img className="post_img_bg" src={imgUrl ? 'http://localhost:3001/upload/coverImg/' + imgUrl : 'http://localhost:3001/upload/coverImg/train.png'} />
       </div>
       {/* 文章简介 */}
       <div className="content-info">

@@ -24,40 +24,40 @@ export default function Header() {
       path: '/home',
       icon: <HomeOutlined />
     },
-    {
-      key: 'articles',
-      title: '文章',
-      path: '/articles',
-      icon: <FileTextOutlined />,
-      child: [
-        {
-          key: 'category',
-          title: '🗂分类',
-          path: '/category'
-        },
-        {
-          key: 'tags',
-          title: '🏷标签',
-          path: '/tags'
-        }
-      ]
-    },
+    // {
+    //   key: 'articles',
+    //   title: '文章',
+    //   path: '/articles',
+    //   icon: <FileTextOutlined />,
+    //   child: [
+    //     {
+    //       key: 'category',
+    //       title: '🗂分类',
+    //       path: '/category'
+    //     },
+    //     {
+    //       key: 'tags',
+    //       title: '🏷标签',
+    //       path: '/tags'
+    //     }
+    //   ]
+    // },
     {
       key: 'says',
       title: '说说',
       path: '/says',
       icon: <MessageOutlined />
     },
+    // {
+    //   key: 'messages',
+    //   title: '留言',
+    //   path: '/messages',
+    //   icon: <CommentOutlined />
+    // },
     {
-      key: 'messages',
-      title: '留言',
-      path: '/messages',
-      icon: <CommentOutlined />
-    },
-    {
-      key: 'login',
-      title: '登录',
-      path: '/login',
+      key: 'aboutMe',
+      title: '关于我',
+      path: '/about',
       icon: <LoginOutlined />
     },
   ]

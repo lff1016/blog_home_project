@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Route, Routes, Navigate } from 'react-router-dom'
 import { message } from 'antd';
 
@@ -14,6 +14,7 @@ import Home from '../Home';
 import Says from '../Says';
 import Message from '../Message';
 import Article from '../Article';
+import About from '../About'
 
 
 export default function Admin() {
@@ -35,9 +36,6 @@ export default function Admin() {
     getAllCategories()
   }, [])
 
-  // 从 store 中提取分类
-  const categories = useSelector(state => state)
-
 
   return (
     <div className='admin' id="body-wrap">
@@ -48,6 +46,7 @@ export default function Admin() {
         <Route path='/article' element={<Article/>}></Route>
         <Route path='/says' element={<Says/>}></Route>
         <Route path='/messages' element={<Message/>}></Route>
+        <Route path='/about' element={<About/>}></Route>
         <Route path='/' element={<Navigate to='/home'/>}></Route>
       </Routes>
       <Footer/>

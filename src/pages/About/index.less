@@ -1,0 +1,72 @@
+.about {
+  width: 100%;
+  background-color: #eff0f2;
+  margin: 50px 0 80px 0;
+}
+
+.about-wrap {
+  margin: 20px auto;
+  width: 80%;
+  padding: 20px 0;
+  background-color: #fff;
+  .about-header {
+    height: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 20px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  // 主体
+  .about-main {
+    display: flex;
+    padding: 10px 20px;
+
+    // 左边区域
+    .about-left {
+      width: 75%;
+      font-size: 18px;
+      border-right: 1px solid #e5e5e5;
+
+      // 文章分布
+      .categories-count {
+        .categories-bar-title {
+          font-size: 20px;
+          font-weight: 700;
+        }
+      }
+
+      // 关于本站
+      .about-site {
+        .about-site-title {
+          font-size: 20px;
+          font-weight: 700;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    // 右边区域
+    .about-right {
+      width: 25%;
+      .myInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 30px;
+        width: 100%;
+        font-size: 18px;
+        border-bottom: 1px solid #e5e5e5;
+        .myInfo-avatar {
+          text-align: center;
+          width: 100px;
+          height: 100px;
+          border-radius: 50px;
+          padding: 4px;
+          box-shadow: 0px 4px 32px gainsboro;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

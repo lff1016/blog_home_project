@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Avatar } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 

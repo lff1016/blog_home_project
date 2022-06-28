@@ -2,11 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const categorySlice = createSlice({
   name: 'categories',
-  initialState: [],
+  initialState: {
+    categories: []
+  },
   reducers: {
     getCategories: (state, {payload}) => {
-      console.log('state', state);
-      state = payload
+      state.categories = payload
     }
   }
 })

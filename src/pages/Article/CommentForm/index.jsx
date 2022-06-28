@@ -61,7 +61,7 @@ export default function CommentForm({isReply, aid, replyId}) {
   
   useEffect(() => {
     getLoginUser()
-  }, [])
+  }, [memoryUtils.login_user])
 
 
   // 处理提交表单

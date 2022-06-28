@@ -53,9 +53,9 @@ export default function Home() {
           })
         }
         {/* 分页 */}
-        <nav id="pagination">
+        {/* <nav id="pagination">
           <Pagination defaultCurrent={1} pageSize={10} total={50} />
-        </nav>
+        </nav> */}
       </div>
       {/* 侧边栏 */}
       <div className='home-aside'>
