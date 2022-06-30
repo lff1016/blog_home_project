@@ -94,7 +94,8 @@ export default function Article() {
                 <h3>评论</h3>
                 <CommentForm
                   aid={id}
-                  replyId={0}
+                  replayId={'0'}
+                  isReplay={false}
                 />
                 <div className="comment-list">
                   <CommenList

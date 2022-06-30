@@ -19,5 +19,6 @@ export const reqCommentList = aid => ajax(`/api/home/comment/list?aid=${aid}`)
 // 添加评论/回复
 export const reqCommentAdd = comment => ajax('/api/home/comment/add', comment, 'POST')
 
+
 // 获取说说列表
 export const reqSaysList = () => ajax('/api/home/says/list')

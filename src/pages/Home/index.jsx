@@ -40,6 +40,7 @@ export default function Home() {
           articles.articles.map(article => {
             return (
               <PostCard
+                key={article._id}
                 id={article._id}
                 title={article.title}
                 date={article.publishDate}

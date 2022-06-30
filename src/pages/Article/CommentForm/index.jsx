@@ -10,7 +10,7 @@ import memoryUtils from '../../../utils/memoryUtils';
 import storageUtils from '../../../utils/storageUtils';
 import { getComments } from '../../../redux/features/commentSlice'
 
-export default function CommentForm({isReply, aid, replyId}) {
+export default function CommentForm({isReplay, aid, replayId, to}) {
 
   const [form] = Form.useForm()
   // 定义变量
@@ -78,11 +78,26 @@ export default function CommentForm({isReply, aid, replyId}) {
         memoryUtils.login_user = homeUser
         storageUtils.saveUser(homeUser)
 
-        let comment = {aid, content, uid: homeUser._id, replyId}
-        const postCommentAdd = await reqCommentAdd(comment)
+        console.log(replayId);
+        let postData 
+        if(replayId == "0") {
+          postData = {aid, content, uid: homeUser._id, isReplay, replayId}
+        } else {
+          // 如果是回复，就是在 replays 数组中增加数据
+          postData = {
+            isReplay,
+            replayId, 
+            replays: {
+              from: homeUser._id,
+              to,
+              content
+            }
+          }
+        }
+        const postCommentAdd = await reqCommentAdd(postData)
         console.log('postCommentAdd', postCommentAdd);
         if(postCommentAdd.status === 0) {
-          message.success(`${replyId !== 0 ? '回复': '评论'}成功😀！`)
+          message.success(`${replayId !== "0" ? '回复': '评论'}成功😀！`)
           // 重新获取 redux 中的评论数据
           getAllComments(aid)
         }
@@ -141,7 +156,7 @@ export default function CommentForm({isReply, aid, replyId}) {
             </div>
             <div className='comment-submit'>
               <Form.Item>
-                <Button type="primary" onClick={handleSubmit}>{isReply ? '回复' : '发布'}</Button>
+                <Button type="primary" onClick={handleSubmit}>{isReplay ? '回复' : '发布'}</Button>
               </Form.Item>
             </div>
           </div>
@@ -150,7 +165,7 @@ export default function CommentForm({isReply, aid, replyId}) {
               <Input.TextArea
                 rows={4}
                 rules={
-                  { pattern: /^[\s\S]*.*[^\s][\s\S]*$/, message: `请输入内容再${isReply ? '回复' : '发布'}！` }
+                  { pattern: /^[\s\S]*.*[^\s][\s\S]*$/, message: `请输入内容再${isReplay ? '回复' : '发布'}！` }
                 }
               />
             </Form.Item>
