@@ -8,19 +8,22 @@ import './index.css'
 
 // { _id, avatar, username, content, date, isReplay, replyId, to }
 export default function CommentItem(props) {
-
+  const {avatar, username, content, date, aid, isReplay, replayId, data, isShow } = props
   const [showReply, { toggle: toggleReply, setFalse: closeReply }] = useBoolean(false)
-  // console.log('@@',replyId, isReplay);
+
+  // 筛选评论下的回复
+  const childReplayList = (data.filter(replay => replay.replayId == replayId)) || []
 
   return (
-    <div className={props.isReplay ? 'comment-reply' : 'comment'}>
-      <Comment 
+    <div className={isReplay ? 'comment-reply' : 'comment'}>
+      {/* 评论详情展示 */}
+      <Comment
         actions={[<span key="comment-basic-reply-to" onClick={toggleReply}>回复</span>]}
-        author={<a>{props.username}</a>}
-        avatar={<Avatar src={props.avatar[0]} alt={props.username} />}
+        author={<a>{username}</a>}
+        avatar={<Avatar src={avatar[0]} alt={username} />}
         content={
           <p>
-            {props.content}
+            {content}
           </p>
         }
         datetime={
@@ -29,14 +32,40 @@ export default function CommentItem(props) {
           </Tooltip>
         }
       />
+
+      {/* 回复表单框 */}
       <div className={showReply ? 'comment-form' : 'comment-form-hidden'}>
         <CommentForm
-          isReplay={props.isReplay}
-          replayId={props.replayId}
-          aid={props.aid}
-          to={props.to}
+          changeRelayShow={closeReply}
+          isReplay={isReplay}
+          replayId={replayId}
+          aid={aid}
         />
       </div>
+
+      {/* 子评论 */}
+      {
+        isShow &&  childReplayList.length !== 0 ? // 主评论是否展示，不展示就不渲染子评论
+          (childReplayList.map(replay => (
+            replay.isShow ? (
+              <CommentItem
+                key={replay._id}
+                avatar={replay.uid.avatar} // 用作页面展示
+                username={replay.uid.username} // 用作页面展示
+                content={replay.content} // 用作页面展示
+                date={replay.publishDate} // 用作页面展示
+                isReplay={true} // 传给评论表单---是否是回复
+                aid={aid} // 传给评论表单--文章的 id
+                replayId={replay._id}
+                data={data}
+                isShow={replay.isShow} // 传给评论表单--主评论的状态
+              // to={comment.uid._id} // 传给评论表单--回复哪个用户的 id
+              />
+            ) : ''
+          )
+          )
+          ) : ''
+      }
     </div>
   )
 }

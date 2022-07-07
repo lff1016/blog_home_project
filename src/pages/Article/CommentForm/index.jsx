@@ -10,7 +10,7 @@ import memoryUtils from '../../../utils/memoryUtils';
 import storageUtils from '../../../utils/storageUtils';
 import { getComments } from '../../../redux/features/commentSlice'
 
-export default function CommentForm({isReplay, aid, replayId, to}) {
+export default function CommentForm({isReplay, aid, replayId, changeRelayShow}) {
 
   const [form] = Form.useForm()
   // 定义变量
@@ -79,8 +79,9 @@ export default function CommentForm({isReplay, aid, replayId, to}) {
         storageUtils.saveUser(homeUser)
 
         console.log(replayId);
-        let postData 
-        if(replayId == "0") {
+        let postData = {aid, content, uid: homeUser._id, isReplay, replayId}
+        console.log('postData', postData);
+/*         if(replayId == "0") {
           postData = {aid, content, uid: homeUser._id, isReplay, replayId}
         } else {
           // 如果是回复，就是在 replays 数组中增加数据
@@ -88,18 +89,19 @@ export default function CommentForm({isReplay, aid, replayId, to}) {
             isReplay,
             replayId, 
             replays: {
-              from: homeUser._id,
-              to,
+              uid: homeUser._id, // 哪个用户的评论
+              replayId: to,  // 回复给谁
               content
             }
           }
-        }
+        } */
         const postCommentAdd = await reqCommentAdd(postData)
-        console.log('postCommentAdd', postCommentAdd);
         if(postCommentAdd.status === 0) {
           message.success(`${replayId !== "0" ? '回复': '评论'}成功😀！`)
           // 重新获取 redux 中的评论数据
           getAllComments(aid)
+          // 通知父组件关闭回复框
+          changeRelayShow()
         }
       }
     } catch (err) {
